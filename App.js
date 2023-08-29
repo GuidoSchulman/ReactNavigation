@@ -21,17 +21,17 @@ const Stack = createNativeStackNavigator();
         <Stack.Screen
           name="Screen1"
           component={Screen1}
-          options={{ title: "Welcome" }}
+          options={{ title: "AZUL" }}
         />
         <Stack.Screen
           name="Screen2"
           component={Screen2}
-          options={{ title: "Welcome" }}
+          options={{ title: "VERDE" }}
         />
         <Stack.Screen
           name="Screen3"
           component={Screen3}
-          options={{ title: "Welcome" }}
+          options={{ title: "ROJO" }}
         />
         
       </Stack.Navigator>

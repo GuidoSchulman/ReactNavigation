@@ -6,7 +6,14 @@ import React from "react";
 const LoginScreen=({navigation})=>{
     const [Usuario, handleUsuario] = React.useState("");
   const [Contrasena, handleContrasena] = React.useState("");
- const handleNavigate = () => navigation.navigate("Screen1")
+  
+ const handleNavigate = () => {
+  if (Usuario !=null && Contrasena!=null) {
+    navigation.navigate("Screen1")
+  }
+ }
+
+
 
 return(
     <SafeAreaView>
@@ -35,6 +42,7 @@ const styles = StyleSheet.create({
       display: "flex",
       flex: 1,
       justifyContent: "center",
+      alignContent:"center"
     },
     
   

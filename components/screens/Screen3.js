@@ -1,15 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { SafeAreaView, Text, StyleSheet, View } from "react-native";
 import Menu from "./Menu";
 
-export default function Screen1() {
+export default function Screen3() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.text}>ROJO</Text>
       </View>
       <View style={styles.menuContainer}>
-        <Menu />
+        <Menu navigation={navigation} />
       </View>
     </SafeAreaView>
   );
@@ -18,6 +21,7 @@ export default function Screen1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"red"
   },
   textContainer: {
     flex: 0.9,
