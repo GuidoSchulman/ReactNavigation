@@ -1,37 +1,63 @@
-import { SafeAreaView,TextInput,StyleSheet,Button,Text,Footer, View } from "react-native";
 import React from "react";
-const Menu =()=>{
-    const [Usuario, handleUsuario] = React.useState("");
-  const [Contrasena, handleContrasena] = React.useState("");
-return(
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
+
+const Menu = () => {
+  return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.menu}>
-
-        </View>
-
-        
+      <View style={styles.menu}>
+        <Pressable style={[styles.button, styles.azul]}>
+          <Text style={styles.textButton}>AZUL</Text>
+        </Pressable>
+        <Pressable style={[styles.button, styles.verde]}>
+          <Text style={styles.textButton}>VERDE</Text>
+        </Pressable>
+        <Pressable style={[styles.button, styles.rojo]}>
+          <Text style={styles.textButton}>ROJO</Text>
+        </Pressable>
+      </View>
     </SafeAreaView>
-)
+  );
+};
 
-
-}
-export default Menu
 const styles = StyleSheet.create({
-    container: {
-      display: "flex",
-      flex: 1,
-      justifyContent: "center",
-      color: "blue"
-      
-    },
-    menu:{
-        justifyContent: "center",
-        textAlign: "center",
-        
-    },
-
-    input: { height: 40, borderWidth: 2, padding: 1 }
+  container: {
+    flex: 0.1,
+    display: "flex",
+  },
+  menu: {
+    flexDirection: "row",
+    width: "100%",
    
-    
-  });
-  
+    bottom:0,
+    flex: 0.1
+  },
+  button: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 100, 
+   
+  },
+  textButton: {
+    color: "white",
+    fontSize: 18, 
+    fontWeight: "bold",
+  },
+  azul: {
+    backgroundColor: "blue",
+  },
+  verde: {
+    backgroundColor: "green",
+  },
+  rojo: {
+    backgroundColor: "red",
+  },
+});
+
+export default Menu;

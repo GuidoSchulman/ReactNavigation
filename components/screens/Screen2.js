@@ -2,11 +2,11 @@ import React from "react";
 import { SafeAreaView, Text, StyleSheet, View } from "react-native";
 import Menu from "./Menu";
 
-export default function Screen1() {
+export default function Screen2() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>AZUL</Text>
+        <Text style={styles.text}>VERDE</Text>
       </View>
       <View style={styles.menuContainer}>
         <Menu />

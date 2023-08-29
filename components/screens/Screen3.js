@@ -6,7 +6,7 @@ export default function Screen1() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>AZUL</Text>
+        <Text style={styles.text}>ROJO</Text>
       </View>
       <View style={styles.menuContainer}>
         <Menu />

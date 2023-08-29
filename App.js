@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./components/screens/LoginScreen";
 import Screen1 from"./components/screens/Screen1";
+import Screen2 from"./components/screens/Screen2";
+import Screen3 from"./components/screens/Screen3";
 import Menu from "./components/screens/Menu"
 const Stack = createNativeStackNavigator();
 
@@ -21,9 +23,19 @@ const Stack = createNativeStackNavigator();
           component={Screen1}
           options={{ title: "Welcome" }}
         />
+        <Stack.Screen
+          name="Screen2"
+          component={Screen2}
+          options={{ title: "Welcome" }}
+        />
+        <Stack.Screen
+          name="Screen3"
+          component={Screen3}
+          options={{ title: "Welcome" }}
+        />
         
       </Stack.Navigator>
-      <Menu></Menu>
+      
     </NavigationContainer>
     
   );
