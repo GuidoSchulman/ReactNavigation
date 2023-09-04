@@ -11,6 +11,7 @@ const Menu = ({navigation}) => {
   const navigateBlue = () => navigation.navigate("Screen1");
   const navigateGreen = () => navigation.navigate("Screen2");
   const navigateRed = () => navigation.navigate("Screen3");
+ 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.menu}>

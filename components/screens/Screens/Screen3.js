@@ -1,15 +1,32 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, Text, StyleSheet, View } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
+
 import Menu from "./Menu";
 
 export default function Screen3() {
   const navigation = useNavigation();
-
+  const handleLogOut=()=>{
+    navigation.navigate("LoginScreen")
+    
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.text}>ROJO</Text>
+   
+        <BotonReutilizable
+          onPress={handleLogOut}
+          style={styles.logoutDiferente}
+          texto="LOGOUT (COMPONENTE)"
+        ></BotonReutilizable>
       </View>
       <View style={styles.menuContainer}>
         <Menu navigation={navigation} />
@@ -21,7 +38,7 @@ export default function Screen3() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"red"
+    backgroundColor: "red",
   },
   textContainer: {
     flex: 0.9,
@@ -37,4 +54,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
   },
+  logoutDiferente: { backgroundColor: "red" },
 });

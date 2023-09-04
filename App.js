@@ -2,11 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "./components/screens/LoginScreen";
-import Screen1 from"./components/screens/Screen1";
-import Screen2 from"./components/screens/Screen2";
-import Screen3 from"./components/screens/Screen3";
-import Menu from "./components/screens/Menu"
+import LoginScreen from "./components/screens/Screens/LoginScreen";
+import Screen1 from"./components/screens/Screens/Screen1";
+import Screen2 from"./components/screens/Screens/Screen2";
+import Screen3 from"./components/screens/Screens/Screen3";
+import Menu from "./components/screens/Screens/Menu"
 const Stack = createNativeStackNavigator();
 
  const App =() =>{
@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LoginScreen">
         <Stack.Screen
-          name="Login"
+          name="LoginScreen"
           component={LoginScreen}
           options={{ title: "Welcome" }}
         />

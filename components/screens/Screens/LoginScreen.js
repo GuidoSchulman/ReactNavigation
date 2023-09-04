@@ -1,17 +1,22 @@
-import { SafeAreaView,TextInput,StyleSheet,Button } from "react-native";
+import { SafeAreaView,TextInput,StyleSheet,Button, Alert } from "react-native";
 import React from "react";
-
+import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
 
 
 const LoginScreen=({navigation})=>{
     const [Usuario, handleUsuario] = React.useState("");
   const [Contrasena, handleContrasena] = React.useState("");
   
- const handleNavigate = () => {
-  if (Usuario !=null && Contrasena!=null) {
-    navigation.navigate("Screen1")
+  const handleNavigate = () => {
+    if (Usuario.toUpperCase() === 'GUIDO' && Contrasena.toUpperCase() === 'YUMMY') {
+      console.log(Usuario);
+      console.log(Contrasena);
+      navigation.navigate("Screen1");
+    } else {
+      
+      Alert.alert("Invalid Credentials", "Please enter the correct username and password.");
+    }
   }
- }
 
 
 
@@ -29,7 +34,11 @@ return(
             onChangeText={handleContrasena}
             value={Contrasena}
           />
-          <Button title="LOGIN" onPress={handleNavigate} ></Button>
+          <BotonReutilizable
+          onPress={handleNavigate}
+          style={styles.logoutDiferente}
+          texto="Ingresar"
+        ></BotonReutilizable>
 
     </SafeAreaView>
 )
