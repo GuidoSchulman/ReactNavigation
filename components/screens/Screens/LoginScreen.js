@@ -9,8 +9,7 @@ const LoginScreen=({navigation})=>{
   
   const handleNavigate = () => {
     if (Usuario.toUpperCase() === 'GUIDO' && Contrasena.toUpperCase() === 'YUMMY') {
-      console.log(Usuario);
-      console.log(Contrasena);
+     
       navigation.navigate("Screen1");
     } else {
       
