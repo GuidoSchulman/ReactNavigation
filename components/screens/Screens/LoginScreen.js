@@ -1,6 +1,7 @@
-import { SafeAreaView,TextInput,StyleSheet,Button, Alert } from "react-native";
+import { SafeAreaView,TextInput,StyleSheet,Button, Alert,Image } from "react-native";
 import React from "react";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
+import juanBauti from '../../../assets/Juan.jpeg'
 
 
 const LoginScreen=({navigation})=>{
@@ -21,6 +22,10 @@ const LoginScreen=({navigation})=>{
 
 return(
     <SafeAreaView>
+       <Image
+        style={styles.tinyLogo}
+        source={juanBauti}
+      />
         <TextInput
             style={styles.input}
             placeholder="Ingrese Usuario"
