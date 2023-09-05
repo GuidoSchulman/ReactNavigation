@@ -8,10 +8,17 @@ import {
 } from "react-native";
 import React from "react";
 
-const BotonReutilizable = ({onPress, style, texto}) => {
+
+const BotonReutilizable = ({ onPress, style, texto }) => {
+  const CalcularHora = () => {
+    let hora = new Date();
+    console.log(hora);
+  };
+
   return (
-    <TouchableOpacity onPress={onPress} 
-    style={[styles.buttonContainer, style]}>
+    <TouchableOpacity onPress={() => { CalcularHora(); onPress(); }} 
+      style={[styles.buttonContainer, style]}
+    >
       <Text style={styles.buttonText}>{texto}</Text>
     </TouchableOpacity>
   );
