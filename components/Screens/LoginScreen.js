@@ -1,7 +1,7 @@
 import { SafeAreaView,TextInput,StyleSheet,Button, Alert,Image } from "react-native";
 import React from "react";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
-import juanBauti from '../../../assets/Juan.jpeg'
+import juanBauti from "../../assets/Juan.jpeg"
 
 
 const LoginScreen=({navigation})=>{
