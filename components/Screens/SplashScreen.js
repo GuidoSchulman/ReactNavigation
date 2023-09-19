@@ -14,7 +14,7 @@ import juanBauti from "../../assets/Juan.jpeg"
 import UsuarioService from "../UsuarioService.js";
 
 const SplashScreen = ({ navigation }) => {
-  let value = UsuarioService.obtenerCredenciales();
+  let value =  UsuarioService.obtenerCredenciales();
   console.log(value);
 
   console.log(value);

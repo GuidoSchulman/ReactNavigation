@@ -2,21 +2,24 @@ import { SafeAreaView,TextInput,StyleSheet,Button, Alert,Image } from "react-nat
 import React from "react";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
 import juanBauti from "../../assets/Juan.jpeg"
-
+import UsuarioService from "../UsuarioService.js";
 
 const LoginScreen=({navigation})=>{
     const [Usuario, handleUsuario] = React.useState("");
   const [Contrasena, handleContrasena] = React.useState("");
   
-  const handleNavigate = () => {
-    if (Usuario.toUpperCase() === 'GUIDO' && Contrasena.toUpperCase() === 'YUMMY') {
-     
-      navigation.navigate("Screen1");
-    } else {
+
+
+    const handleNavigate = async() => {
+    if (isValid=await UsuarioService.login(Usuario,Contrasena)) {
       
+      navigation.navigate("Screen1")
+    }
+    else{
       Alert.alert("Invalid Credentials", "Please enter the correct username and password.");
     }
   }
+  
 
 
 

@@ -2,10 +2,14 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { SafeAreaView, Text, StyleSheet, View } from "react-native";
 import Menu from "./Menu";
-
-export default function Screen1() {
+import UsuarioService from "../UsuarioService.js";
+import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
+export default  function Screen1() {
   const navigation = useNavigation();
-
+  const  handleVerAsyncStorage=async()=>{
+    value= await UsuarioService.obtenerCredenciales()
+    console.log(value);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
@@ -14,6 +18,10 @@ export default function Screen1() {
       <View style={styles.menuContainer}>
         <Menu navigation={navigation} />
       </View>
+      <BotonReutilizable
+          onPress={handleVerAsyncStorage}
+          texto="VerAsyncStorage"
+        ></BotonReutilizable>
     </SafeAreaView>
   );
 }
