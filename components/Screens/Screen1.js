@@ -1,27 +1,30 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, Text, StyleSheet, View } from "react-native";
+import { SafeAreaView, Text, StyleSheet, View, Alert } from "react-native";
 import Menu from "./Menu";
 import UsuarioService from "../UsuarioService.js";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
+
 export default  function Screen1() {
+
+  const usuarioService = new UsuarioService();
   const navigation = useNavigation();
   const  handleVerAsyncStorage=async()=>{
-    value= await UsuarioService.obtenerCredenciales()
-    console.log(value);
+    value = await usuarioService.obtenerCredenciales();
+    console.log(value)
   }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.text}>AZUL</Text>
+        <BotonReutilizable
+          onPress={handleVerAsyncStorage}
+          texto="VerAsyncStorage"
+        ></BotonReutilizable>
       </View>
       <View style={styles.menuContainer}>
         <Menu navigation={navigation} />
       </View>
-      <BotonReutilizable
-          onPress={handleVerAsyncStorage}
-          texto="VerAsyncStorage"
-        ></BotonReutilizable>
     </SafeAreaView>
   );
 }

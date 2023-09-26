@@ -14,33 +14,30 @@ import juanBauti from "../../assets/Juan.jpeg"
 import UsuarioService from "../UsuarioService.js";
 
 const SplashScreen = ({ navigation }) => {
-  let value =  UsuarioService.obtenerCredenciales();
-  console.log(value);
+  const usuarioService = new UsuarioService();
+  setTimeout(function () {
+    if (usuarioService.automaticlogin()) {
+      console.log('AUTOMATICLOGIN')
+      navigation.navigate("Screen1");
+    }
+    else {
+      console.log('LOGUEATE')
+      navigation.navigate("LoginScreen");
+    }
+  }, 3000);
 
-  console.log(value);
-  setTimeout(function() {
-    if (value.userName == null || value.password == null) {
-    navigation.navigate("LoginScreen");
-
-
-  }
-  else{
-
-  }
-}, 3000);
-  
   ;
 
   return (
     <SafeAreaView>
-        <Image
+      <Image
         style={styles.tinyLogo}
         source={juanBauti}
       />
       <View style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator size="large" color="blue"/>
+        <ActivityIndicator size="large" color="blue" />
       </View>
-      
+
     </SafeAreaView>
   );
 };

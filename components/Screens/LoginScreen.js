@@ -5,13 +5,14 @@ import juanBauti from "../../assets/Juan.jpeg"
 import UsuarioService from "../UsuarioService.js";
 
 const LoginScreen=({navigation})=>{
-    const [Usuario, handleUsuario] = React.useState("");
+  const usuarioService = new UsuarioService();
+  const [Usuario, handleUsuario] = React.useState("");
   const [Contrasena, handleContrasena] = React.useState("");
   
 
 
     const handleNavigate = async() => {
-    if (isValid=await UsuarioService.login(Usuario,Contrasena)) {
+    if (isValid=await usuarioService.login(Usuario,Contrasena)) {
       
       navigation.navigate("Screen1")
     }
