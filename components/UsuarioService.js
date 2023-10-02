@@ -9,7 +9,7 @@ class UsuarioService {
     console.log(userName + " " + password);
     if (
       userName.toUpperCase() === "GUIDO" && password.toUpperCase() === "YUMMY") {
-      this.almacenarCredenciales(userName, password);
+      this.almacenarCredenciales(userName.toUpperCase(), password.toUpperCase());
       isValid = true;
       return isValid;
     } else {
@@ -19,13 +19,15 @@ class UsuarioService {
 
   automaticlogin = async () => {
     //Obtienelascredencialesalmacenadaseintentaloguearse.
-    let Usuario = await AsyncStorage.getItem(USERNAME_KEY);
-    let Contrasena = await AsyncStorage.getItem(PASSWORD_KEY);
-    console.log(Usuario, Contrasena)
+    let InfoUsuario= await this.obtenerCredenciales()
+    console.log(InfoUsuario)
     let isValid = false;
-    if(Usuario == 'Guido' && Contrasena == 'Yummy'){
+    if(InfoUsuario.userName === 'GUIDO' && InfoUsuario.password === 'YUMMY'){
       isValid = true;
-    }else{
+
+    }
+    
+    else{
       isValid = false;
     }
     return isValid;

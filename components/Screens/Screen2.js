@@ -12,7 +12,7 @@ export default function Screen2() {
   const navigation = useNavigation();
   const  handleEliminarAsyncStorage=async()=>{
     await usuarioService.eliminarCredenciales()
-    console.log(value);
+  
   }
 
   return (
@@ -22,6 +22,7 @@ export default function Screen2() {
         <BotonReutilizable
           onPress={handleEliminarAsyncStorage}
           texto="EliminarAsyncStorage"
+          
         ></BotonReutilizable>
       </View>
       <View style={styles.menuContainer}>

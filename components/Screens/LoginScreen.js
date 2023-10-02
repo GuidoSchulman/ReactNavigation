@@ -1,5 +1,5 @@
 import { SafeAreaView,TextInput,StyleSheet,Button, Alert,Image } from "react-native";
-import React from "react";
+import React, { useRef } from "react";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
 import juanBauti from "../../assets/Juan.jpeg"
 import UsuarioService from "../UsuarioService.js";
@@ -8,7 +8,7 @@ const LoginScreen=({navigation})=>{
   const usuarioService = new UsuarioService();
   const [Usuario, handleUsuario] = React.useState("");
   const [Contrasena, handleContrasena] = React.useState("");
-  
+  const inputEl2 = useRef(null)
 
 
     const handleNavigate = async() => {
@@ -26,28 +26,32 @@ const LoginScreen=({navigation})=>{
 
 return(
     <SafeAreaView>
-       <Image
-        style={styles.tinyLogo}
-        source={juanBauti}
-      />
+     
         <TextInput
             style={styles.input}
             placeholder="Ingrese Usuario"
             onChangeText={handleUsuario}
             value={Usuario}
+            onSubmitEditing={() => inputEl2.current.focus()}
+            returnKeyType="next"
           />
           <TextInput
             style={styles.input}
             placeholder="ingrese Contrasena"
             onChangeText={handleContrasena}
             value={Contrasena}
+            ref={inputEl2}
+            returnKeyType="next"
           />
           <BotonReutilizable
           onPress={handleNavigate}
           style={styles.logoutDiferente}
           texto="Ingresar"
         ></BotonReutilizable>
-
+  <Image
+        style={styles.tinyLogo}
+        source={juanBauti}
+      />
     </SafeAreaView>
 )
 

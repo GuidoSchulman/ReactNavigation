@@ -11,7 +11,7 @@ export default  function Screen1() {
   const navigation = useNavigation();
   const  handleVerAsyncStorage=async()=>{
     value = await usuarioService.obtenerCredenciales();
-    console.log(value)
+   Alert.alert(value)
   }
   return (
     <SafeAreaView style={styles.container}>

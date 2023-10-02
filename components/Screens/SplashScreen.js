@@ -15,8 +15,9 @@ import UsuarioService from "../UsuarioService.js";
 
 const SplashScreen = ({ navigation }) => {
   const usuarioService = new UsuarioService();
-  setTimeout(function () {
-    if (usuarioService.automaticlogin()) {
+  setTimeout(async function () {
+    value=await usuarioService.automaticlogin()
+    if (value==true) {
       console.log('AUTOMATICLOGIN')
       navigation.navigate("Screen1");
     }
