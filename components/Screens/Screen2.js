@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, Text, StyleSheet, View } from "react-native";
+import { SafeAreaView, Text, StyleSheet, View, ToastAndroid } from "react-native";
 import Menu from "./Menu";
 import UsuarioService from "../UsuarioService.js";
 import BotonReutilizable from "../ComponenteReutilizable/BotonReutilizable";
@@ -12,7 +12,7 @@ export default function Screen2() {
   const navigation = useNavigation();
   const  handleEliminarAsyncStorage=async()=>{
     await usuarioService.eliminarCredenciales()
-  
+    ToastAndroid.show('Credenciales eliminadas', ToastAndroid.SHORT)
   }
 
   return (
