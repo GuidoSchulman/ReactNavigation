@@ -9,26 +9,20 @@ class UsuarioService {
     console.log(userName + " " + password);
     if (
       userName.toUpperCase() === "GUIDO" && password.toUpperCase() === "YUMMY") {
-      this.almacenarCredenciales(userName.toUpperCase(), password.toUpperCase());
+      await this.almacenarCredenciales(userName.toUpperCase(), password.toUpperCase());
       isValid = true;
-      return isValid;
-    } else {
-      return isValid;
     }
+    return isValid;
   };
 
   automaticlogin = async () => {
     //Obtienelascredencialesalmacenadaseintentaloguearse.
+    let isValid = false;
+    console.log('automaticlogin');
     let InfoUsuario= await this.obtenerCredenciales()
     console.log(InfoUsuario)
-    let isValid = false;
     if(InfoUsuario.userName === 'GUIDO' && InfoUsuario.password === 'YUMMY'){
       isValid = true;
-
-    }
-    
-    else{
-      isValid = false;
     }
     return isValid;
   };
@@ -43,20 +37,25 @@ class UsuarioService {
     try {
       await AsyncStorage.setItem(USERNAME_KEY, userName);
       await AsyncStorage.setItem(PASSWORD_KEY, password);
-      return isValid;
-    } catch (e) {}
+      
+    } catch (e) {
+
+    }
   };
 
   obtenerCredenciales = async () => {
+    let returnValue = {
+      userName: null,
+      password: null,
+    };
     try {
-      let storedUserName = await AsyncStorage.getItem(USERNAME_KEY);
-      let storedPassword = await AsyncStorage.getItem(PASSWORD_KEY);
-      const returnValue = {
-        userName: storedUserName,
-        password: storedPassword,
-      };
-      return returnValue;
-    } catch (e) {}
+        let storedUserName = await AsyncStorage.getItem(USERNAME_KEY);
+        let storedPassword = await AsyncStorage.getItem(PASSWORD_KEY);
+        returnValue.userName = storedUserName;
+        returnValue.password = storedPassword;
+    } catch (e) {
+    }
+    return returnValue;
   };
 }
 export default UsuarioService;

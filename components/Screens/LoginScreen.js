@@ -15,6 +15,7 @@ const LoginScreen=({navigation})=>{
     if (isValid=await usuarioService.login(Usuario,Contrasena)) {
       
       navigation.navigate("Screen1")
+      //console.log("navigate(Screen1)");
     }
     else{
       Alert.alert("Invalid Credentials", "Please enter the correct username and password.");
